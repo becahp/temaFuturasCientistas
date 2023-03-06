@@ -1,0 +1,5 @@
+/* Imagem do post */
+.img-post {
+    display: flex;
+    justify-content: center;
+}

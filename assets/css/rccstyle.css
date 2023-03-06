@@ -148,14 +148,16 @@
 }
 
 .tag-links-rcc a {
-    background: #EDEDED;
-    padding: 10px;
-    margin-right: 8px;
-    color: #555;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 17px;
-    align-items: center;
+  background: #EDEDED;
+  padding: 10px;
+  margin-right: 8px;
+  color: #555;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 17px;
+  align-items: center;
+  margin-bottom: 8px;
+  display: inline-block;
 }
 
 .tag-links-rcc a:hover {
