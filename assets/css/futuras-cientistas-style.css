@@ -3,3 +3,17 @@
     display: flex;
     justify-content: center;
 }
+
+/* Ajusta largura do post para melhor responsividade mobile */
+@media screen and (max-width: 1024px) {
+    .container-rcc-post {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-rcc-post {
+        width: 100%;
+        width: calc(100% - 1rem);
+    }
+}
