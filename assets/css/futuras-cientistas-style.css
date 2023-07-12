@@ -70,9 +70,9 @@
 }*/
 
 /* Adiciona borda aos primeiros li*/
-.primeiro-li {
+/* .primeiro-li {
     border-top: 1px solid #C4C4C4;
-}
+} */
 
 /* Remove o pontinho de ul e li */
 .accordion-moara ul,
@@ -158,9 +158,10 @@
     color: #000000 !important;
 }
 
+/*
 .eael-advance-tabs .eael-tabs-nav>ul li i {
     color: #000000 !important;
-}
+}*/
 
 .eael-advance-tabs .eael-tabs-nav>ul li svg path.cls-1,
 .eael-advance-tabs .eael-tabs-nav>ul li>svg path.cls-1 {

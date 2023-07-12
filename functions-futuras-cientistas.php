@@ -160,7 +160,7 @@ function meu_arrr_custom_loop_moara($r_type = 'post', $r_post_num, $r_tax = 'cat
             //$cats = get_the_category_instituicoes();
 
         ?>
-            <div onmouseover="mouseOver(this);" onmouseout="mouseOut();">
+            <div>
                 <a class="item-moara-a" href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a>
 
                 <span class='d-none'><?php echo wp_trim_words(get_the_excerpt(), 120) ?></span>
