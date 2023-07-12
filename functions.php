@@ -1000,3 +1000,7 @@ function chama_shortcode_redes($params) {
 
 #Ex: [shortcode_redes rede_slug="rede-de-suporte" categoria_slug="suporte_categoria"] 
 add_shortcode('shortcode_redes', 'chama_shortcode_redes');
+
+
+include 'criar_redes.php';
+include 'functions-futuras-cientistas.php';

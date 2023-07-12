@@ -17,3 +17,189 @@
         width: calc(100% - 1rem);
     }
 }
+
+/* Novo accordion */
+/* https://codyhouse.co/gem/css-multi-level-accordion-menu */
+
+/* esconder checkbox nativa */
+.cd-accordion__input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* centralizar a label com o ícone */
+.cd-accordion__label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* comentei esses aqui pq não fazem nada no nosso sistema */
+    /* padding: var(--space-sm) var(--space-md);
+    background: var(--cd-color-1);
+    box-shadow: inset 0 -1px lightness(var(--cd-color-1), 1.2);
+    color: var(--color-white); */
+}
+
+/*  por padrão, os filhos começam escondidos */
+.cd-accordion__sub {
+    display: none;
+}
+
+/* mostrar os filhos quando o checkbox é clicado */
+.cd-accordion__input:checked~.cd-accordion__sub {
+    display: block;
+}
+
+/* 
+*                   Minhas classes 
+*/
+
+/* Melhor padding e margin do primeiro ul*/
+.primeiro-ul {
+    padding: 0px;
+    margin: 0;
+}
+
+/*Para manter o conteúdo do accordion centralizado no meio*/
+/*.accordion-moara-container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.accordion-moara {
+    width: -webkit-fill-available;
+}*/
+
+/* Adiciona borda aos primeiros li*/
+.primeiro-li {
+    border-top: 1px solid #C4C4C4;
+}
+
+/* Remove o pontinho de ul e li */
+.accordion-moara ul,
+.accordion-moara li {
+    list-style-type: none;
+}
+
+/* Adiciona o cursor ao label e melhora padding */
+.accordion-moara label {
+    cursor: pointer;
+    padding-block: 20px;
+}
+
+/* Adiciona cor ao hover do label */
+.accordion-moara label:hover {
+    background-color: #e5c9f2;
+}
+
+/* Melhora o padding do item final */
+.item-moara {
+    padding-bottom: 10px;
+}
+
+/* Muda cor do link do item final */
+.item-moara a {
+    color: black;
+}
+
+/* Adiciona cor ao hover do item final e linha pontilhada embaixo */
+.item-moara-a:hover {
+    background-color: aliceblue;
+    border-bottom: 1px dotted black;
+}
+
+/* Adiciona cor ao hover da categoria do item final e linha pontilhada ao redor */
+.item-moara-cat:hover {
+    background-color: beige;
+    border: 1px dashed black;
+}
+
+/* Classes para o elemento que abarca os accordions - elementor */
+.eael-advance-tabs .eael-tabs-nav>ul li {
+    min-height: 72px !important;
+}
+
+/* Classes para consertar o tamanho ícones svg */
+.eael-advance-tabs .eael-tabs-nav>ul li svg {
+    width: 30px !important;
+}
+
+/* Classes para consertar a cor ícones svg no hover */
+.eael-advance-tabs .eael-tabs-nav>ul li.active svg path.cls-1,
+.eael-advance-tabs .eael-tabs-nav>ul li:hover>svg path.cls-1 {
+    fill: #fff !important;
+}
+
+/* ajustar z-index das abas de redes que estavam ficando por cima do header */
+.eael-advance-tabs .eael-tabs-nav>ul {
+    z-index: 0 !important;
+    align-items: stretch;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+/* ajustar cor do erro no formulário */
+.wpforms-container label.wpforms-error {
+    color: red !important;
+}
+
+/* Footer */
+.license {
+    color: #fff;
+}
+
+.license:hover {
+    text-decoration: none;
+    color: #5992ed;
+}
+
+
+/* --------------------- status não ativo*/
+.eael-advance-tabs .eael-tabs-nav>ul li {
+    background-color: #F2F2F2 !important;
+    color: #000000 !important;
+}
+
+.eael-advance-tabs .eael-tabs-nav>ul li i {
+    color: #000000 !important;
+}
+
+.eael-advance-tabs .eael-tabs-nav>ul li svg path.cls-1,
+.eael-advance-tabs .eael-tabs-nav>ul li>svg path.cls-1 {
+    fill: #000000 !important;
+}
+
+/* --------------------- status ativo*/
+.eael-advance-tabs .eael-tabs-nav>ul li.active,
+.eael-advance-tabs .eael-tabs-nav>ul li:hover,
+.eael-adv-accordion .eael-accordion-list .eael-accordion-header.active,
+.eael-adv-accordion .eael-accordion-list .eael-accordion-header:hover {
+    background-color: #714b98 !important;
+    color: #fff !important;
+}
+
+.eael-advance-tabs .eael-tabs-nav>ul li:hover i {
+    color: #fff !important;
+}
+
+.eael-adv-accordion .eael-accordion-list .eael-accordion-header .fa-toggle,
+.eael-adv-accordion .eael-accordion-list .eael-accordion-header .fa-accordion-icon {
+    color: #714b98 !important;
+}
+
+.eael-advance-tabs .eael-tabs-nav>ul li:after {
+    border-top-color: #714b98 !important;
+}
+
+/* As abas devem quebrar em novas linhas já no desktops pequenos, se não gera overflow. */
+@media screen and (max-width: 1280px) {
+    .eael-advance-tabs .eael-tabs-nav>ul {
+        flex-wrap: wrap;
+    }
+}
+
+.archive-moara .post-title {
+    font-size: 1.25rem;
+}
+
+.archive-moara .entry a:not(:hover):not(:focus) {
+    color: #000000;
+}
