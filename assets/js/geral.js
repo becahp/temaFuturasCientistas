@@ -6,7 +6,7 @@ function myFunctionEntrar() {
 function myFunctionBusca() {
     var termo = document.getElementById("main-searchbox").value;
     //console.log(termo)
-    window.location.href = "/rcc/?s=" + termo;
+    window.location.href = "/futuras_cientistas/?s=" + termo;
 }
 
 jQuery(document).ready(function($) {

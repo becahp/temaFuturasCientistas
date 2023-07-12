@@ -196,9 +196,11 @@
     }
 }
 
+/*
 .archive-moara .post-title {
     font-size: 1.25rem;
 }
+*/
 
 .archive-moara .entry a:not(:hover):not(:focus) {
     color: #000000;
