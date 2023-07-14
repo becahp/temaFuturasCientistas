@@ -336,3 +336,19 @@
 .nav-links .page-numbers {
     display: contents;
 }
+
+.br-breadcrumb .crumb-list .crumb a {
+    display:flex;
+}
+
+.br-breadcrumb .crumb-list .crumb {
+    color: var(--color-secondary-08);
+    cursor: default;
+    font-size: var(--font-size-scale-down-01);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+}
+
+.br-breadcrumb [data-active="active"]{
+    position: unset;
+}

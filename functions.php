@@ -672,85 +672,119 @@ Adicionando funções do tema
 
 add_shortcode('shortcode_breadcrumb', 'dsgov_breadcrumb');
 
-function dsgov_breadcrumb() {
-	echo '<div class="col pt-3 pb-3">';
-	echo '<div class="br-breadcrumb">';
-	echo '<ul class="crumb-list">';
-	//casinha home
-	echo '<li class="crumb home">';
-	$onclick = " onclick=\"window.location.href='".home_url()."'\" ";
-	echo '<div class="br-button circle"'. $onclick .'><span class="sr-only">Página inicial</span><i class="icon fas fa-home"></i></div>';
-	echo '</li>';
+function dsgov_breadcrumb()
+{
+    echo '<div class="col pt-3 pb-3">';
+    echo '<div class="br-breadcrumb">';
+    echo '<ul class="crumb-list">';
 
-	if (is_category() || is_single() || is_tag()) {
-		echo '<li class="crumb"><i class="icon fas fa-chevron-right"></i>';
-		//the_category(' &bull; ');
-		echo '<a href="'.get_post_type_archive_link( 'post' ).'"> Post </a>';
-		echo '</li>';
+    //casinha home
+    echo '<li class="crumb home">';
+    echo '<a class="br-button circle" href="' . home_url() . '">';
+    echo '<span class="sr-only">Página inicial</span>';
+    echo '<i class="fas fa-home"></i>';
+    echo '</a>';
+    echo '</li>';
 
-		if (is_single()) {
-			echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
-			the_title();
-			echo '</span></li>';
-		} else {
-			echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
-			echo '<a href="'.get_post_type_archive_link( 'archive' ).'"> '.get_the_archive_title().' </a>';
-			echo '</span></li>';
-		}
-	} elseif (is_page()) {
-		echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
-		the_title();
-		echo '</span></li>';
-	} elseif (is_search()) {
-		echo '&nbsp;&nbsp;<img src="/wp-content/uploads/2021/09/seta.png">&nbsp;&nbsp;Resultados de busca por ... ';
-		echo '"<em>';
-		echo the_search_query();
-		echo '</em>"';
-	}
-	echo '</div></div>';
+    if (is_single()) {
+        // Primeiro nível
+        echo '<li class="crumb"><i class="icon fas fa-chevron-right"></i>';
+        echo '<a href="' . get_post_type_archive_link('post') . '"> Post </a>';
+        echo '</li>';
+        // Página atual
+        echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i>';
+        the_title();
+        echo '</li>';
+    } elseif (is_category() || is_tag()) {
+        $taxonomia = is_category() ? 'Categoria' : 'Tag';
+        echo '<li class="crumb"><i class="icon fas fa-chevron-right"></i><span>';
+        echo $taxonomia;
+        echo '</span></li>';
+        // Página atual
+        echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
+        echo '<a href="' . get_post_type_archive_link('archive') . '"> ' . get_the_archive_title() . ' </a>';
+        echo '</span></li>';
+    } elseif (is_page()) {
+        echo '<li class="crumb"><i class="icon fas fa-chevron-right"></i>';
+        echo '<span>Página</span>';
+        echo '</li>';
+        // Página atual
+        echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
+        the_title();
+        echo '</span></li>';
+    } elseif (is_search()) {
+        echo '&nbsp;&nbsp;<img src="/wp-content/uploads/2021/09/seta.png">&nbsp;&nbsp;Resultados de busca por ... ';
+        echo '"<em>';
+        echo the_search_query();
+        echo '</em>"';
+    }
+    echo '</ul></div></div>';
 }
 
 
 add_shortcode('shortcode_breadcrumb_redes', 'dsgov_breadcrumb_redes');
 #Ex: [shortcode_breadcrumb_redes rede_slug="rede-de-suporte" rede_name="Rede de Suporte" categoria_slug="bolsas" categoria_name="Bolsas" categoria_rede="suporte_categoria"] 
-function dsgov_breadcrumb_redes($params) {
+function dsgov_breadcrumb_redes($params)
+{
+    $var = shortcode_atts([
+        'rede_slug' => 'rede-de-suporte',
+        'rede_name' => 'Rede de Suporte',
+        'categoria_slug' => 'bolsas',
+        'categoria_name' => 'Bolsas',
+        'categoria_rede' => 'suporte_categoria',
+        'type' => 'post',
+    ], $params);
 
-	$var = shortcode_atts([
-			'rede_slug' => 'rede-de-suporte',
-			'rede_name' => 'Rede de Suporte',
-			'categoria_slug' => 'bolsas',
-			'categoria_name' => 'Bolsas',
-			'categoria_rede' => 'suporte_categoria',
-			'type' => 'post',
-	], $params);
+    echo '<div class="col pt-3 pb-3">';
+    echo '<div class="br-breadcrumb">';
+    echo '<ul class="crumb-list">';
 
-	echo '<div class="col pt-3 pb-3">';
-	echo '<div class="br-breadcrumb">';
-	echo '<ul class="crumb-list">';
-	//casinha home
-	echo '<li class="crumb home">';
-	$onclick = " onclick=\"window.location.href='".home_url()."'\" ";
-	echo '<div class="br-button circle"'. $onclick .'><span class="sr-only">Página inicial</span><i class="icon fas fa-home"></i></div>';
-	echo '</li>';
+    //casinha home
+    echo '<li class="crumb home">';
+    echo '<a class="br-button circle" href="' . home_url() . '">';
+    echo '<span class="sr-only">Página inicial</span>';
+    echo '<i class="fas fa-home"></i>';
+    echo '</a>';
+    echo '</li>';
 
-	echo '<li class="crumb"><i class="icon fas fa-chevron-right"></i>';
-	echo '<a href="'.get_post_type_archive_link( $var['rede_slug'] ).'"> '.$var['rede_name'].' </a>';
-	echo '</li>';
+    $is_archive_active = $var['type'] == 'archive' ? 'data-active="active"' : '';
 
-	if($var['type'] == 'post' || $var['type'] == 'taxonomy') {
-		echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
-		echo '<a href="'.get_site_url().'/'.$var['categoria_rede'].'/'.$var['categoria_slug'].'"> '.$var['categoria_name'].' </a>';
-		echo '</span></li>';
-	}
+    echo '<li class="crumb" ' . $is_archive_active . '><i class="icon fas fa-chevron-right"></i>';
+    echo '<a href="' . get_post_type_archive_link($var['rede_slug']) . '"> ' . $var['rede_name'] . ' </a>';
+    echo '</li>';
 
-	if($var['type'] == 'post') {
-		echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
-		the_title();
-		echo '</span></li>';
-	}
+    if ($var['type'] == 'taxonomy') {
+        echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
+        echo '<a href="' . get_site_url() . '/' . $var['categoria_rede'] . '/' . $var['categoria_slug'] . '"> ' . $var['categoria_name'] . ' </a>';
+        echo '</span></li>';
+    }
 
+    if ($var['type'] == 'post') {
+        echo '<li class="crumb"><i class="icon fas fa-chevron-right"></i><span>';
+        echo '<a href="' . get_site_url() . '/' . $var['categoria_rede'] . '/' . $var['categoria_slug'] . '"> ' . $var['categoria_name'] . ' </a>';
+        echo '</span></li>';
 
-	echo '</div></div>';
+        echo '<li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i><span>';
+        the_title();
+        echo '</span></li>';
+    }
+    echo '</ul></div></div>';
+}
+
+function gera_breadcrumb_redes($rede_slug, $rede_name, $categoria_rede, $type = 'post')
+{
+    $term_obj_list = get_the_terms(get_the_id(), $categoria_rede);
+    $terms_string = wp_list_pluck($term_obj_list, 'name')[0];
+    $term_slug = wp_list_pluck($term_obj_list, 'slug')[0];
+
+    /* Pegar a taxonomia do post
+	https://developer.wordpress.org/reference/functions/get_the_terms/#comment-2587 */
+
+    echo "<div class=\"container-lg d-block\">";
+    echo "<div class=\"breadcrumb-post\" style=\"margin-left: -24px;\">";
+    echo do_shortcode('[shortcode_breadcrumb_redes rede_slug="' . $rede_slug . '" rede_name="' . $rede_name . '" categoria_slug="' . $term_slug . '" categoria_name="' . $terms_string . '" categoria_rede="' . $categoria_rede . '" type="' . $type . '"]');
+    echo "</div>";
+    echo "</div>";
 }
 
 /*  

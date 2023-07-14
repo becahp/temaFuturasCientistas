@@ -18,16 +18,11 @@ $description = get_the_archive_description();
 <?php if (have_posts()) : ?>
 
 	<?php
-
 	$rede_slug = "rede-2";
 	$rede_name = getNameRede($rede_slug);
 	$categoria_rede = "rede_2_categoria";
 
-	echo "<div class=\"container-lg d-block\">";
-	echo "<div class=\"breadcrumb-post\" style=\"margin-left: -24px;\">";
-	echo do_shortcode('[shortcode_breadcrumb_redes rede_slug="' . $rede_slug . '" rede_name="' . $rede_name . '" categoria_slug="' . $term_slug . '" categoria_name="' . $terms_string . '" categoria_rede="' . $categoria_rede . '" type="archive"]');
-	echo "</div>";
-	echo "</div>";
+	gera_breadcrumb_redes($rede_slug, $rede_name, $categoria_rede, 'archive');
 	?>
 
 	<div class="container-lg d-block">

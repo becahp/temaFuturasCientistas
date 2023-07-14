@@ -22,9 +22,10 @@ $description = get_the_archive_description();
 	$rede_name = getNameRede($rede_slug);
 	$categoria_rede = "rede_1_categoria";
 
-	gera_breadcrumb_redes($rede_slug, $rede_name, $categoria_rede, 'archive');
+	gera_breadcrumb_redes($rede_slug, $rede_name, $categoria_rede, 'taxonomy');
 	?>
 
+	<div class="mb-5"></div>
 	<div class="container-lg d-block">
 
 		<header class="page-header alignwide">
@@ -47,7 +48,5 @@ $description = get_the_archive_description();
 <?php else : ?>
 	<?php get_template_part('template-parts/content/content-none'); ?>
 <?php endif; ?>
-
 <div class="mb-5"></div>
-
 <?php get_footer(); ?>
