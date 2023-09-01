@@ -17,12 +17,14 @@
 		if (has_post_thumbnail()) {
 			the_post_thumbnail('thumbnail_redes_retangular');
 		} else {
-			echo '<img src="' . get_template_directory_uri() . '/assets/images/futuras_placeholder.png' . '" class="attachment-thumbnail_redes_retangular size-thumbnail_redes_retangular wp-post-image" alt="" decoding="async" style="width:100%;height:100.58%;max-width:450px;" width="450" height="250">';
+			echo '<img src="' . get_template_directory_uri() . '/assets/images/futuras_placeholder.png' . '" class="attachment-thumbnail_redes_retangular size-thumbnail_redes_retangular wp-post-image" alt="" decoding="async" width="450" height="250">';
 		}
 		?>
-		<h2><a class="post-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		<!--<p class="post-excerpt"><?php #echo get_the_excerpt(); 
-									?></p> -->
+		<h2>
+			<a class="post-title" href="<?php the_permalink(); ?>">
+				<?php the_title(); ?>
+			</a>
+		</h2>
 		<p class="post-excerpt"><?php echo wp_trim_words(get_the_content(), 30) ?></p>
 		<a class="moretext" href="<?php the_permalink(); ?>">Continue lendo <i class="fas fa-arrow-right"></i></a>
 	</article><!-- #post-${ID} -->
