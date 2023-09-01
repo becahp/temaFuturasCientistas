@@ -22,7 +22,7 @@
 		?>
 		<h2>
 			<a class="post-title" href="<?php the_permalink(); ?>">
-				<?php the_title(); ?>
+				<?php echo wp_trim_words(the_title(), 150) ?>
 			</a>
 		</h2>
 		<!-- <p class="post-excerpt"><?php echo wp_trim_words(get_field("texto"), 30) ?></p> -->
