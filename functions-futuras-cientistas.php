@@ -180,11 +180,11 @@ function meu_arrr_custom_loop_moara($r_type = 'post', $r_post_num, $r_tax = 'cat
 /*  
  * -- Novo formato para as imagens --
 */
-function thumbnail_redes()
+/* function thumbnail_redes()
 {
     add_image_size('thumbnail_redes', 300, 300, true);
 }
-add_action('after_setup_theme', 'thumbnail_redes');
+add_action('after_setup_theme', 'thumbnail_redes'); */
 
 function thumbnail_redes_retangular()
 {

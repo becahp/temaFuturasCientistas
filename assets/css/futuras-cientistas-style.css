@@ -208,6 +208,7 @@
 }
 
 .archive-moara h2 {
+    margin-top: 10px;
     height: 60px;
 }
 
@@ -217,7 +218,7 @@
 
 .archive-moara img {
     /* min-width: 250px; */
-    min-height: 205px;
+    min-height: 180px;
     /* max-height: 100%; */
     /* max-width: 450px; */
     object-fit: contain;

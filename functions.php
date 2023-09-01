@@ -796,10 +796,10 @@ function thumbnail_post() {
 add_action('after_setup_theme', 'thumbnail_post');
 
 
-function thumbnail_blog() {
+/* function thumbnail_blog() {
 	add_image_size('thumbnail_blog', 253, 158, true);
 }
-add_action('after_setup_theme', 'thumbnail_blog');
+add_action('after_setup_theme', 'thumbnail_blog'); */
 
 /*  
  * -- Funções para template do post --
