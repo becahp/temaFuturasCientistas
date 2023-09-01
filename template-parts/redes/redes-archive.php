@@ -25,7 +25,8 @@
 				<?php the_title(); ?>
 			</a>
 		</h2>
-		<p class="post-excerpt"><?php echo wp_trim_words(get_field("texto"), 30) ?></p>
+		<!-- <p class="post-excerpt"><?php echo wp_trim_words(get_field("texto"), 30) ?></p> -->
+		<p class="post-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 30) ?></p>
 		<a class="moretext" href="<?php the_permalink(); ?>">Continue lendo <i class="fas fa-arrow-right"></i></a>
 	</article><!-- #post-${ID} -->
 </div>
